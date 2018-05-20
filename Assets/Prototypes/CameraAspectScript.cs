@@ -5,14 +5,22 @@
 /// Script from https://answers.unity.com/users/225499/siddharth3322.html
 /// https://answers.unity.com/questions/618058/mobile-device-screen-sizes.html
 /// </summary>
+/// <remarks>
+/// Making the target aspect's height and width serializable to be set from editor.</remarks>
 public class CameraAspectScript : MonoBehaviour
 {
+    [SerializeField]
+    private float targetAspectWidth = 9.0f;
+
+    [SerializeField]
+    private float targetAspectHeight = 16.0f;
+
     void Start()
     {
         // set the desired aspect ratio (the values in this example are
         // hard-coded for 16:9, but you could make them into public
         // variables instead so you can set them at design time)
-        float targetaspect = 16.0f / 9.0f;
+        float targetaspect = this.targetAspectWidth / this.targetAspectHeight;
 
         // determine the game window's current aspect ratio
         float windowaspect = (float)Screen.width / (float)Screen.height;
