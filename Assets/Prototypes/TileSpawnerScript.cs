@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class TileSpawnerScript : MonoBehaviour
 {
 	public float minSpawnCooldown = 0.15f;
@@ -14,15 +14,15 @@ public class TileSpawnerScript : MonoBehaviour
 	[SerializeField]
 	private GameObject[] TilePrefabs;
 
-	private Collider2D spawnerCollider;
-	
-	void Start()
+	private BoxCollider2D spawnerCollider;
+
+	private void Start()
 	{
-		this.spawnerCollider = GetComponent<Collider2D>();
+		this.spawnerCollider = GetComponent<BoxCollider2D>();
 		this.spawnCooldownRemaining = Random.Range(this.minSpawnCooldown, this.maxSpawnCooldown);
 	}
 
-	void Update()
+	private void Update()
 	{
 		this.spawnCooldownRemaining -= Time.deltaTime;
 
@@ -41,6 +41,6 @@ public class TileSpawnerScript : MonoBehaviour
 		}
 		
 		var randomIndex = Random.Range(0, this.TilePrefabs.Length);
-		Instantiate(this.TilePrefabs[randomIndex], this.transform.position, Quaternion.identity);
+        var tileGameObject = Instantiate(this.TilePrefabs[randomIndex], this.transform.position, Quaternion.identity);
 	}
 }
