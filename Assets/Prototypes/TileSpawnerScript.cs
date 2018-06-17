@@ -16,10 +16,14 @@ public class TileSpawnerScript : MonoBehaviour
 
 	private BoxCollider2D spawnerCollider;
 
+    private GameObject tileParent;
+
 	private void Start()
 	{
 		this.spawnerCollider = GetComponent<BoxCollider2D>();
 		this.spawnCooldownRemaining = Random.Range(this.minSpawnCooldown, this.maxSpawnCooldown);
+
+        this.tileParent = GameObject.Find("GameBoard");
 	}
 
 	private void Update()
@@ -41,6 +45,6 @@ public class TileSpawnerScript : MonoBehaviour
 		}
 		
 		var randomIndex = Random.Range(0, this.TilePrefabs.Length);
-        var tileGameObject = Instantiate(this.TilePrefabs[randomIndex], this.transform.position, Quaternion.identity);
+        Instantiate(this.TilePrefabs[randomIndex], this.transform.position, Quaternion.identity, this.tileParent.transform);
 	}
 }

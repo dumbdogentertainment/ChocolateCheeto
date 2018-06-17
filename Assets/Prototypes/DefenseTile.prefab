@@ -37,9 +37,10 @@ GameObject:
   - component: {fileID: 4554044588694082}
   - component: {fileID: 50755979010622394}
   - component: {fileID: 61813113271838054}
+  - component: {fileID: 114522706931610004}
   m_Layer: 0
   m_Name: DefenseTile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +120,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!61 &61813113271838054
 BoxCollider2D:
@@ -142,10 +143,21 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.8}
   m_EdgeRadius: 0.05
+--- !u!114 &114522706931610004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274530586245220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20072fd0763a1994693add3a8e0abda7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212572119605326756
 SpriteRenderer:
   m_ObjectHideFlags: 1

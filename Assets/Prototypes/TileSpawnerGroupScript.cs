@@ -14,9 +14,6 @@ public class TileSpawnerGroupScript : MonoBehaviour
 	private float maxPositionX = 2.5f;
 	
 	[SerializeField]
-	private float tileScale = 0.5f;
-
-	[SerializeField]
 	private GameObject TileSpawner;
 
 	void Start()
@@ -30,8 +27,7 @@ public class TileSpawnerGroupScript : MonoBehaviour
 				z = this.transform.position.z
 			};
 
-			var spawner = Instantiate(this.TileSpawner, position, Quaternion.identity, this.transform);
-			var spawnerComponent = spawner.GetComponent<TileSpawnerScript>();
+			Instantiate(this.TileSpawner, position, Quaternion.identity, this.transform);
 		}
 	}
 }
